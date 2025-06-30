@@ -1,3 +1,5 @@
+import { NavLink } from 'react-router-dom';
+
 // Favourite & Cart:
 import { PiStarBold } from 'react-icons/pi';
 import { FiShoppingCart } from 'react-icons/fi';
@@ -11,13 +13,23 @@ const Footer = () => {
   return (
     <footer className="p-2 flex flex-col gap-2 bg-[#f5f5f5]">
       <ul className="flex gap-4 justify-between">
-        <li className="flex flex-col items-center justify-center cursor-pointer">
-          <PiStarBold className="text-3xl text-gray-600/50" />{' '}
-          <span className="text-gray-400/50">Избранное</span>
+        <li>
+          <NavLink
+            to="favourite"
+            className="flex flex-col items-center justify-center cursor-pointer"
+          >
+            <PiStarBold className="text-3xl text-gray-600/50" />{' '}
+            <span className="text-gray-400/50">Избранное</span>
+          </NavLink>
         </li>
-        <li className="flex flex-col items-center justify-center cursor-pointer">
-          <FiShoppingCart className="text-3xl text-gray-600/50" />{' '}
-          <span className="text-gray-400/50">Корзина</span>
+        <li>
+          <NavLink
+            to="cart"
+            className="flex flex-col items-center justify-center cursor-pointer"
+          >
+            <FiShoppingCart className="text-3xl text-gray-600/50" />{' '}
+            <span className="text-gray-400/50">Корзина</span>
+          </NavLink>
         </li>
       </ul>
 

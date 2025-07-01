@@ -8,7 +8,7 @@ import CustomSection from '../shared/ui/CustomSection';
 
 const GeneralPage = () => {
   return (
-    <main className="p-2 h-full flex-1 flex flex-col gap-10 justify-between overflow-y-auto">
+    <main className="p-2 h-full flex-1 flex flex-col gap-20 justify-between overflow-y-auto">
       <CustomSection>
         <h1 className="text-center font-semibold text-2xl">
           Главная страница сайта

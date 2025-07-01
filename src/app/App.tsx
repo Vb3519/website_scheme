@@ -8,6 +8,10 @@ import GeneralPage from '../pages/GeneralPage';
 
 import AboutPage from '../pages/AboutPage';
 import CatalogPage from '../pages/catalog/CatalogPage';
+import CatalogGroupOnePage from '../pages/catalog/CatalogGroupOnePage';
+import CatalogGroupTwoPage from '../pages/catalog/CatalogGroupTwoPage';
+import CatalogGroupThreePage from '../pages/catalog/CatalogGroupThreePage';
+
 import ContactsPage from '../pages/ContactsPage';
 
 import FavouritePage from '../pages/FavouritePage';
@@ -22,7 +26,14 @@ const App = () => {
 
           <Route path="about" element={<AboutPage />} />
           <Route path="contacts" element={<ContactsPage />} />
+
           <Route path="catalog" element={<CatalogPage />} />
+          <Route path="catalog/groupOne" element={<CatalogGroupOnePage />} />
+          <Route path="catalog/groupTwo" element={<CatalogGroupTwoPage />} />
+          <Route
+            path="catalog/groupThree"
+            element={<CatalogGroupThreePage />}
+          />
 
           <Route path="favourite" element={<FavouritePage />} />
           <Route path="cart" element={<CartPage />} />

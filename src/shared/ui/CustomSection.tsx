@@ -13,7 +13,9 @@ const CustomSection: React.FC<CustomSection_Props> = ({
 }: CustomSection_Props) => {
   return (
     <section
-      className={`m-auto flex flex-col gap-4 ${className ? className : ''}`}
+      className={`flex flex-col gap-4 items-center justify-center ${
+        className ? className : ''
+      }`}
       {...props}
     >
       {/* ----- Условный рендеринг (два разных варианта): ----- */}

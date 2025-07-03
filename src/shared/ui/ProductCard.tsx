@@ -1,7 +1,14 @@
+// Типизация компонента (Вариант №1):
 type ProductCard_Props = React.LiHTMLAttributes<HTMLLIElement> & {
   className?: string;
   children?: React.ReactNode;
 };
+
+// Типизация компонента (Вариант №2):
+// interface ProductCard_Props extends React.LiHTMLAttributes<HTMLLIElement> {
+//   className: string;
+//   children: React.ReactNode;
+// }
 
 const ProductCard: React.FC<ProductCard_Props> = ({
   className,

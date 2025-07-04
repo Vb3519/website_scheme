@@ -1,6 +1,12 @@
+import { RiFileChartLine } from 'react-icons/ri';
+
 // Типизация компонента (Вариант №1):
 type ProductCard_Props = React.LiHTMLAttributes<HTMLLIElement> & {
   className?: string;
+  icon: React.ReactNode;
+  manufacturer: string;
+  title: string;
+  price: string;
   children?: React.ReactNode;
 };
 
@@ -12,16 +18,33 @@ type ProductCard_Props = React.LiHTMLAttributes<HTMLLIElement> & {
 
 const ProductCard: React.FC<ProductCard_Props> = ({
   className,
+  icon,
+  manufacturer,
+  title,
+  price,
   children,
   ...props
 }: ProductCard_Props) => {
   return (
     <li
-      className={`p-2 flex flex-col gap-2 border-2 border-gray-300 rounded-2xl ${
+      className={`p-4 flex flex-col gap-2 border-2 border-gray-300 rounded-2xl ${
         className ? className : ''
       }`}
       {...props}
     >
+      <div className="pb-2 border-b-2 border-b-gray-200 flex">
+        <RiFileChartLine className="m-auto text-9xl text-gray-400/50" />
+        {icon}
+      </div>
+      <p>
+        <span className="font-semibold">Производитель:</span> {manufacturer}
+      </p>
+      <p>
+        <span className="font-semibold">Название:</span> {title}
+      </p>
+      <p>
+        <span className="font-semibold">Цена:</span> {price} Руб.
+      </p>
       {children}
     </li>
   );

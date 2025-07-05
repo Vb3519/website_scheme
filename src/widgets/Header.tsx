@@ -26,22 +26,28 @@ const Header = () => {
       </nav>
 
       <ul className="ml-auto hidden gap-4 justify-between lg:flex">
-        <li>
+        <li className="relative">
           <NavLink
             to="favourite"
             className="flex flex-col items-center justify-center cursor-pointer"
           >
             <PiStarBold className="text-3xl text-gray-600/50" />{' '}
             <span className="text-gray-400/50">Избранное</span>
+            <div className="absolute top-0 right-4 flex items-center justify-center w-6 h-6 rounded-[50%] bg-blue-400 font-semibold text-[whitesmoke]">
+              <span className="mt-0.5">0</span>
+            </div>
           </NavLink>
         </li>
-        <li>
+        <li className="relative">
           <NavLink
             to="cart"
             className="flex flex-col items-center justify-center cursor-pointer"
           >
             <FiShoppingCart className="text-3xl text-gray-600/50" />{' '}
             <span className="text-gray-400/50">Корзина</span>
+            <div className="absolute top-0 right-1 flex items-center justify-center w-6 h-6 rounded-[50%] bg-blue-400 font-semibold text-[whitesmoke]">
+              <span className="mt-0.5">0</span>
+            </div>
           </NavLink>
         </li>
       </ul>

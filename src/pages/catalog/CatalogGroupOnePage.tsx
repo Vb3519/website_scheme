@@ -9,6 +9,7 @@ import CustomSection from '../../shared/ui/CustomSection';
 import BreadCrumbs from '../../shared/ui/BreadCrumbs';
 import ProductCard from '../../shared/ui/ProductCard';
 import CustomButton from '../../shared/ui/CustomButton';
+import CatalogFiltersForm from '../../widgets/CatalogFiltersForm';
 
 const CatalogGroupOnePage = () => {
   return (
@@ -27,6 +28,8 @@ const CatalogGroupOnePage = () => {
             <span>/</span> Группа товаров №1
           </li>
         </BreadCrumbs>
+
+        <CatalogFiltersForm />
 
         <h1 className="w-full text-left font-semibold">Группа товаров №1:</h1>
 

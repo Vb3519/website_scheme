@@ -13,22 +13,28 @@ const Footer = () => {
   return (
     <footer className="p-2 flex flex-col gap-2 bg-[#f5f5f5] lg:flex-row lg:justify-between lg:py-4">
       <ul className="flex gap-4 justify-center lg:hidden">
-        <li>
+        <li className="relative">
           <NavLink
             to="favourite"
             className="flex flex-col items-center justify-center cursor-pointer"
           >
             <PiStarBold className="text-3xl text-gray-600/50" />{' '}
             <span className="text-gray-400/50">Избранное</span>
+            <div className="absolute top-0 right-4 flex items-center justify-center w-6 h-6 rounded-[50%] bg-blue-400 font-semibold text-[whitesmoke]">
+              <span className="mt-0.5">0</span>
+            </div>
           </NavLink>
         </li>
-        <li>
+        <li className="relative">
           <NavLink
             to="cart"
             className="flex flex-col items-center justify-center cursor-pointer"
           >
             <FiShoppingCart className="text-3xl text-gray-600/50" />{' '}
             <span className="text-gray-400/50">Корзина</span>
+            <div className="absolute top-0 right-1 flex items-center justify-center w-6 h-6 rounded-[50%] bg-blue-400 font-semibold text-[whitesmoke]">
+              <span className="mt-0.5">0</span>
+            </div>
           </NavLink>
         </li>
       </ul>

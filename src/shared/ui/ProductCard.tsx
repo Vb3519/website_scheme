@@ -6,7 +6,7 @@ type ProductCard_Props = React.LiHTMLAttributes<HTMLLIElement> & {
   icon: React.ReactNode;
   manufacturer: string;
   title: string;
-  price: string;
+  price: number;
   children?: React.ReactNode;
 };
 

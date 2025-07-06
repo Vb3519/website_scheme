@@ -1,3 +1,5 @@
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 
 // React-icons:
@@ -10,7 +12,35 @@ import BreadCrumbs from '../../shared/ui/BreadCrumbs';
 import ProductCard from '../../shared/ui/ProductCard';
 import CustomButton from '../../shared/ui/CustomButton';
 
+// Api:
+import { catalogProductsURL } from '../../shared/api/catalogApi';
+
+// Types:
+import { AppDispatch } from '../../app/redux/store';
+
+// State:
+import {
+  selectCurrentProductsGroupId,
+  fetchProductsData,
+} from '../../app/redux/slices/catalogProductsSlice';
+
 const CatalogGroupTwoPage = () => {
+  const dispatch: AppDispatch = useDispatch();
+
+  const currentProductsGroupId: number | null = useSelector(
+    selectCurrentProductsGroupId
+  );
+
+  const handleLoadCurrentGroupProductsData = (groupId: number) => {
+    dispatch(fetchProductsData(`${catalogProductsURL}?vendorId=${groupId}`));
+  };
+
+  useEffect(() => {
+    if (currentProductsGroupId) {
+      handleLoadCurrentGroupProductsData(currentProductsGroupId);
+    }
+  }, []);
+
   return (
     <main className="p-2 h-full flex-1 flex flex-col gap-10 justify-between overflow-y-auto">
       <CustomSection className="justify-start lg:min-h-screen">
@@ -38,7 +68,7 @@ const CatalogGroupTwoPage = () => {
             manufacturer="Пример
             производителя"
             title="Пример названия"
-            price="1000"
+            price={1000}
           >
             <CustomButton className="mt-2 flex gap-2 items-center justify-center">
               Купить <LuShoppingCart />
@@ -52,7 +82,7 @@ const CatalogGroupTwoPage = () => {
             manufacturer="Пример
             производителя"
             title="Пример названия"
-            price="1000"
+            price={1000}
           >
             <CustomButton className="mt-2 flex gap-2 items-center justify-center">
               Купить <LuShoppingCart />
@@ -66,7 +96,7 @@ const CatalogGroupTwoPage = () => {
             manufacturer="Пример
             производителя"
             title="Пример названия"
-            price="1000"
+            price={1000}
           >
             <CustomButton className="mt-2 flex gap-2 items-center justify-center">
               Купить <LuShoppingCart />

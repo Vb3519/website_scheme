@@ -7,8 +7,8 @@ import MainLayout from '../shared/layouts/MainLayout';
 import GeneralPage from '../pages/GeneralPage';
 
 import AboutPage from '../pages/AboutPage';
-import CatalogPage from '../pages/catalog/CatalogPage';
-import CatalogGroupOnePage from '../pages/catalog/CatalogGroupOnePage';
+import CatalogGeneralPage from '../pages/catalog/CatalogGeneralPage';
+import CatalogGroupOnePage from '../pages/catalog/catalogGroupOne/CatalogGroupOnePage';
 import CatalogGroupTwoPage from '../pages/catalog/CatalogGroupTwoPage';
 import CatalogGroupThreePage from '../pages/catalog/CatalogGroupThreePage';
 
@@ -27,7 +27,7 @@ const App = () => {
           <Route path="about" element={<AboutPage />} />
           <Route path="contacts" element={<ContactsPage />} />
 
-          <Route path="catalog" element={<CatalogPage />} />
+          <Route path="catalog" element={<CatalogGeneralPage />} />
           <Route path="catalog/groupOne" element={<CatalogGroupOnePage />} />
           <Route path="catalog/groupTwo" element={<CatalogGroupTwoPage />} />
           <Route

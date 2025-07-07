@@ -1,12 +1,12 @@
-import { useEffect, useLayoutEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 
 // Ui:
 import CustomSection from '../../../shared/ui/CustomSection';
 import BreadCrumbs from '../../../shared/ui/BreadCrumbs';
 import CatalogFiltersForm from '../../../widgets/CatalogFiltersForm';
-import GroupOneProductsList from './GroupOneProductsList';
+import GroupTwoProductsList from './GroupTwoProductsList';
 
 // Api:
 import { catalogProductsURL } from '../../../shared/api/catalogApi';
@@ -21,7 +21,7 @@ import {
   fetchProductsData,
 } from '../../../app/redux/slices/catalogProductsSlice';
 
-const CatalogGroupOnePage = () => {
+const CatalogGroupTwoPage = () => {
   const dispatch: AppDispatch = useDispatch();
 
   const isDataLoading: boolean = useSelector(
@@ -39,13 +39,13 @@ const CatalogGroupOnePage = () => {
   };
 
   useEffect(() => {
-    handleSetProductsGroupId(1);
-    handleLoadCurrentGroupProductsData(1);
+    handleSetProductsGroupId(2);
+    handleLoadCurrentGroupProductsData(2);
   }, []);
 
   return (
     <main className="p-2 h-full flex-1 flex flex-col gap-10 justify-between overflow-y-auto">
-      <CustomSection className="justify-start">
+      <CustomSection className="justify-start lg:min-h-screen">
         <BreadCrumbs>
           <li>
             <NavLink to="/">Главная</NavLink>
@@ -56,7 +56,7 @@ const CatalogGroupOnePage = () => {
             </NavLink>
           </li>
           <li className="text-black">
-            <span>/</span> Группа товаров №1
+            <span>/</span> Группа товаров №2
           </li>
         </BreadCrumbs>
 
@@ -69,10 +69,10 @@ const CatalogGroupOnePage = () => {
             <CatalogFiltersForm />
 
             <h1 className="w-full text-left font-semibold">
-              Группа товаров №1:
+              Группа товаров №2:
             </h1>
 
-            <GroupOneProductsList />
+            <GroupTwoProductsList />
           </>
         )}
       </CustomSection>
@@ -80,4 +80,4 @@ const CatalogGroupOnePage = () => {
   );
 };
 
-export default CatalogGroupOnePage;
+export default CatalogGroupTwoPage;

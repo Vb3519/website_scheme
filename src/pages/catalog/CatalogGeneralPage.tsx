@@ -56,13 +56,7 @@ const CatalogGeneralPage = () => {
             <h2 className="font-semibold">Группа товаров №1</h2>
             <RiFileList3Line className="text-9xl text-gray-400/50" />
             <p>Текстовое описание группы товаров №1</p>
-            <NavLink
-              to="groupOne"
-              className="ml-auto"
-              onClick={() => {
-                handleSetProductsGroupId(1);
-              }}
-            >
+            <NavLink to="groupOne" className="ml-auto">
               Подробнее...
             </NavLink>
           </ProductsGroupCard>
@@ -72,13 +66,7 @@ const CatalogGeneralPage = () => {
             icon={<RiFileList3Line className="text-9xl text-gray-400/50" />}
             description="Текстовое описание группы товаров №2"
             link={
-              <NavLink
-                to="groupTwo"
-                className="ml-auto"
-                onClick={() => {
-                  handleSetProductsGroupId(2);
-                }}
-              >
+              <NavLink to="groupTwo" className="ml-auto">
                 Подробнее...
               </NavLink>
             }
@@ -89,13 +77,7 @@ const CatalogGeneralPage = () => {
             icon={<RiFileList3Line className="text-9xl text-gray-400/50" />}
             description="Текстовое описание группы товаров №3"
             link={
-              <NavLink
-                to="groupThree"
-                className="ml-auto"
-                onClick={() => {
-                  handleSetProductsGroupId(3);
-                }}
-              >
+              <NavLink to="groupThree" className="ml-auto">
                 Подробнее...
               </NavLink>
             }

@@ -9,8 +9,8 @@ import GeneralPage from '../pages/GeneralPage';
 import AboutPage from '../pages/AboutPage';
 import CatalogGeneralPage from '../pages/catalog/CatalogGeneralPage';
 import CatalogGroupOnePage from '../pages/catalog/catalogGroupOne/CatalogGroupOnePage';
-import CatalogGroupTwoPage from '../pages/catalog/CatalogGroupTwoPage';
-import CatalogGroupThreePage from '../pages/catalog/CatalogGroupThreePage';
+import CatalogGroupTwoPage from '../pages/catalog/catalogGroupTwo/CatalogGroupTwoPage';
+import CatalogGroupThreePage from '../pages/catalog/catalogGroupThree/CatalogGroupThreePage';
 
 import ContactsPage from '../pages/ContactsPage';
 

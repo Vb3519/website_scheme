@@ -11,7 +11,7 @@ import CustomButton from '../../../shared/ui/CustomButton';
 // State:
 import { selectCurrentProductsList } from '../../../app/redux/slices/catalogProductsSlice';
 
-const GroupOneProductsList = () => {
+const GroupThreeProductsList = () => {
   const currentProductsList = useSelector(selectCurrentProductsList);
 
   return (
@@ -43,4 +43,4 @@ const GroupOneProductsList = () => {
   );
 };
 
-export default GroupOneProductsList;
+export default GroupThreeProductsList;

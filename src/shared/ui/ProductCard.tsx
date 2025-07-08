@@ -6,6 +6,7 @@ type ProductCard_Props = React.LiHTMLAttributes<HTMLLIElement> & {
   icon: React.ReactNode;
   manufacturer: string;
   title: string;
+  groupTitle: string;
   price: number;
   children?: React.ReactNode;
 };
@@ -21,6 +22,7 @@ const ProductCard: React.FC<ProductCard_Props> = ({
   icon,
   manufacturer,
   title,
+  groupTitle,
   price,
   children,
   ...props
@@ -38,6 +40,9 @@ const ProductCard: React.FC<ProductCard_Props> = ({
       </div>
       <p>
         <span className="font-semibold">Производитель:</span> {manufacturer}
+      </p>
+      <p>
+        <span className="font-semibold">Группа товаров:</span> {groupTitle}
       </p>
       <p>
         <span className="font-semibold">Название:</span> {title}

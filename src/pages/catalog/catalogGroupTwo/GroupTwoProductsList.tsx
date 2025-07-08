@@ -26,6 +26,7 @@ const GroupTwoProductsList = () => {
                   <PiStarBold className="text-3xl text-gray-400/50 cursor-pointer" />
                 }
                 manufacturer={productInfo.vendorTitle}
+                groupTitle={productInfo.groupTitle}
                 title={productInfo.productTitle}
                 price={productInfo.price}
               >

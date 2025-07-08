@@ -7,85 +7,105 @@
   "products": [
     {
       "id": 0,
-      "vendorTitle": "Производитель №1",
-      "vendorId": 1,
+      "vendorTitle": "Производитель №2",
+      "groupId": 1,
+      "groupTitle": "Группа №1",
       "productTitle": "Товар №1",
       "price": 1000,
-      "isInStock": true
+      "isInStock": true,
+      "isInFav": false
     },
     {
       "id": 1,
       "vendorTitle": "Производитель №1",
-      "vendorId": 1,
+      "groupId": 1,
+      "groupTitle": "Группа №1",
       "productTitle": "Товар №2",
       "price": 1200,
-      "isInStock": true
+      "isInStock": true,
+      "isInFav": false
     },
     {
       "id": 2,
-      "vendorTitle": "Производитель №1",
-      "vendorId": 1,
+      "vendorTitle": "Производитель №3",
+      "groupId": 1,
+      "groupTitle": "Группа №1",
       "productTitle": "Товар №3",
       "price": 1400,
-      "isInStock": false
+      "isInStock": false,
+      "isInFav": false
     },
     {
       "id": 3,
       "vendorTitle": "Производитель №1",
-      "vendorId": 1,
+      "groupId": 1,
+      "groupTitle": "Группа №1",
       "productTitle": "Товар №4",
       "price": 1400,
-      "isInStock": true
+      "isInStock": true,
+      "isInFav": false
     },
 
     {
       "id": 4,
       "vendorTitle": "Производитель №2",
-      "vendorId": 2,
+      "groupId": 2,
+      "groupTitle": "Группа №2",
       "productTitle": "Товар №5",
       "price": 1000,
-      "isInStock": false
+      "isInStock": false,
+      "isInFav": false
     },
     {
       "id": 5,
       "vendorTitle": "Производитель №2",
-      "vendorId": 2,
+      "groupId": 2,
+      "groupTitle": "Группа №2",
       "productTitle": "Товар №6",
       "price": 1200,
-      "isInStock": true
+      "isInStock": true,
+      "isInFav": false
     },
     {
       "id": 6,
       "vendorTitle": "Производитель №2",
-      "vendorId": 2,
+      "groupId": 2,
+      "groupTitle": "Группа №2",
       "productTitle": "Товар №7",
       "price": 1400,
-      "isInStock": true
+      "isInStock": true,
+      "isInFav": false
     },
 
     {
       "id": 7,
       "vendorTitle": "Производитель №3",
-      "vendorId": 3,
+      "groupId": 3,
+      "groupTitle": "Группа №3",
       "productTitle": "Товар №8",
       "price": 1000,
-      "isInStock": true
+      "isInStock": true,
+      "isInFav": false
     },
     {
       "id": 8,
       "vendorTitle": "Производитель №3",
-      "vendorId": 3,
+      "groupId": 3,
+      "groupTitle": "Группа №3",
       "productTitle": "Товар №9",
       "price": 1200,
-      "isInStock": false
+      "isInStock": false,
+      "isInFav": false
     },
     {
       "id": 9,
       "vendorTitle": "Производитель №3",
-      "vendorId": 3,
+      "groupId": 3,
+      "groupTitle": "Группа №3",
       "productTitle": "Товар №10",
       "price": 1400,
-      "isInStock": false
+      "isInStock": false,
+      "isInFav": false
     }
   ]
 }

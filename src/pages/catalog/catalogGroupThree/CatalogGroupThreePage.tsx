@@ -39,7 +39,7 @@ const CatalogGroupThreePage = () => {
   };
 
   const handleLoadCurrentGroupProductsData = (groupId: number) => {
-    dispatch(fetchProductsData(`${catalogProductsURL}?vendorId=${groupId}`));
+    dispatch(fetchProductsData(`${catalogProductsURL}?groupId=${groupId}`));
   };
 
   useEffect(() => {

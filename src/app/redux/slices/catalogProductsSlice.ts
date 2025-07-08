@@ -10,7 +10,8 @@ import serverResponseDelayImitation from '../../../shared/utils/serverResponseDe
 interface Product_Props {
   id: number;
   vendorTitle: string;
-  vendorId: number;
+  groupId: number;
+  groupTitle: string;
   productTitle: string;
   price: number;
   isInStock: boolean;

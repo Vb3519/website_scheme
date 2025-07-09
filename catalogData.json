@@ -48,7 +48,7 @@
 
     {
       "id": 4,
-      "vendorTitle": "Производитель №2",
+      "vendorTitle": "Производитель №1",
       "groupId": 2,
       "groupTitle": "Группа №2",
       "productTitle": "Товар №5",
@@ -58,7 +58,7 @@
     },
     {
       "id": 5,
-      "vendorTitle": "Производитель №2",
+      "vendorTitle": "Производитель №3",
       "groupId": 2,
       "groupTitle": "Группа №2",
       "productTitle": "Товар №6",
@@ -89,7 +89,7 @@
     },
     {
       "id": 8,
-      "vendorTitle": "Производитель №3",
+      "vendorTitle": "Производитель №2",
       "groupId": 3,
       "groupTitle": "Группа №3",
       "productTitle": "Товар №9",
@@ -99,7 +99,7 @@
     },
     {
       "id": 9,
-      "vendorTitle": "Производитель №3",
+      "vendorTitle": "Производитель №1",
       "groupId": 3,
       "groupTitle": "Группа №3",
       "productTitle": "Товар №10",

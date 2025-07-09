@@ -18,12 +18,14 @@ import { AppDispatch } from '../../../app/redux/store';
 import {
   setSelectedProductsGroupId,
   selectCatalogProductsSlice,
+  selectCurrentProductsList,
   fetchProductsData,
 } from '../../../app/redux/slices/catalogProductsSlice';
 
 const CatalogGroupTwoPage = () => {
   const dispatch: AppDispatch = useDispatch();
 
+  const currentProductsList = useSelector(selectCurrentProductsList);
   const isDataLoading: boolean = useSelector(
     selectCatalogProductsSlice
   ).isLoading;
@@ -66,13 +68,21 @@ const CatalogGroupTwoPage = () => {
           </div>
         ) : (
           <>
-            <CatalogFiltersForm />
+            {currentProductsList.length ? (
+              <>
+                <CatalogFiltersForm />
 
-            <h1 className="w-full text-left font-semibold">
-              Группа товаров №2:
-            </h1>
+                <h1 className="w-full text-left font-semibold">
+                  Группа товаров №2:
+                </h1>
 
-            <GroupTwoProductsList />
+                <GroupTwoProductsList />
+              </>
+            ) : (
+              <div className="h-screen flex items-center">
+                <h2 className="text-center font-semibold">...Нет данных...</h2>
+              </div>
+            )}
           </>
         )}
       </CustomSection>

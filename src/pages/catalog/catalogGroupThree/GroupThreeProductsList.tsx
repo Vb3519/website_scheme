@@ -37,9 +37,7 @@ const GroupThreeProductsList = () => {
             );
           })}
         </ul>
-      ) : (
-        <h2 className="h-[70vh]">...Нет данных...</h2>
-      )}
+      ) : null}
     </>
   );
 };

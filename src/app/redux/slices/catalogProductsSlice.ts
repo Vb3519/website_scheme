@@ -6,16 +6,7 @@ import serverResponseDelayImitation from '../../../shared/utils/serverResponseDe
 
 // Types:
 // ------------------------
-
-interface Product_Props {
-  id: number;
-  vendorTitle: string;
-  groupId: number;
-  groupTitle: string;
-  productTitle: string;
-  price: number;
-  isInStock: boolean;
-}
+import { Product_Props } from '../../../shared/types/Product_Props';
 
 interface CatalogProductsState {
   selectedProductsGroupId: null | number;

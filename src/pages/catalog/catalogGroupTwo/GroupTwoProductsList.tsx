@@ -1,7 +1,7 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 // React-icons:
-import { PiStarBold } from 'react-icons/pi';
+import { PiStarBold, PiStarFill } from 'react-icons/pi';
 import { LuShoppingCart } from 'react-icons/lu';
 
 // Ui:
@@ -10,20 +10,59 @@ import CustomButton from '../../../shared/ui/CustomButton';
 
 // State:
 import { selectCurrentProductsList } from '../../../app/redux/slices/catalogProductsSlice';
+import {
+  selectFavProductsList,
+  addProductToFav,
+  removeProductFromFav,
+} from '../../../app/redux/slices/FavProductsSlice';
+
+// Types:
+import { AppDispatch } from '../../../app/redux/store';
+import { Product_Props } from '../../../shared/types/Product_Props';
 
 const GroupTwoProductsList = () => {
+  const dispatch: AppDispatch = useDispatch();
+
   const currentProductsList = useSelector(selectCurrentProductsList);
+  const currentFavProducts = useSelector(selectFavProductsList);
+
+  const handleToggleProductFav = (productData: Product_Props) => {
+    const isAlrdyInFav: boolean = currentFavProducts.some(
+      (favProduct) => favProduct.id === productData.id
+    );
+
+    if (isAlrdyInFav) {
+      dispatch(removeProductFromFav(productData.id));
+    } else {
+      dispatch(addProductToFav(productData));
+    }
+  };
 
   return (
     <>
       {currentProductsList.length ? (
         <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {currentProductsList.map((productInfo) => {
+            const isInFav: boolean = currentFavProducts.some(
+              (favProduct) => favProduct.id === productInfo.id
+            );
+
             return (
               <ProductCard
                 key={productInfo.id}
+                isInFav={productInfo.isInFav}
                 icon={
-                  <PiStarBold className="text-3xl text-gray-400/50 cursor-pointer" />
+                  <span
+                    onClick={() => {
+                      handleToggleProductFav(productInfo);
+                    }}
+                  >
+                    {isInFav ? (
+                      <PiStarFill className="text-3xl text-blue-400/50 cursor-pointer" />
+                    ) : (
+                      <PiStarBold className="text-3xl text-gray-400/50 cursor-pointer" />
+                    )}
+                  </span>
                 }
                 manufacturer={productInfo.vendorTitle}
                 groupTitle={productInfo.groupTitle}

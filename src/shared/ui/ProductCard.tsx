@@ -3,6 +3,7 @@ import { RiFileChartLine } from 'react-icons/ri';
 // Типизация компонента (Вариант №1):
 type ProductCard_Props = React.LiHTMLAttributes<HTMLLIElement> & {
   className?: string;
+  isInFav: boolean;
   icon: React.ReactNode;
   manufacturer: string;
   title: string;
@@ -19,6 +20,7 @@ type ProductCard_Props = React.LiHTMLAttributes<HTMLLIElement> & {
 
 const ProductCard: React.FC<ProductCard_Props> = ({
   className,
+  isInFav,
   icon,
   manufacturer,
   title,

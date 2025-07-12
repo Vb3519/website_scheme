@@ -1,3 +1,4 @@
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
 // Favourite & Cart:
@@ -9,7 +10,12 @@ import { FaVk } from 'react-icons/fa';
 import { FaTelegramPlane } from 'react-icons/fa';
 import { FaWhatsapp } from 'react-icons/fa';
 
+// State:
+import { selectFavProductsList } from '../app/redux/slices/FavProductsSlice';
+
 const Footer = () => {
+  const currentFavProducts = useSelector(selectFavProductsList);
+
   return (
     <footer className="p-2 flex flex-col gap-2 bg-[#f5f5f5] lg:flex-row lg:justify-between lg:py-4">
       <ul className="flex gap-4 justify-center lg:hidden">
@@ -21,7 +27,7 @@ const Footer = () => {
             <PiStarBold className="text-3xl text-gray-600/50" />{' '}
             <span className="text-gray-400/50">Избранное</span>
             <div className="absolute top-0 right-4 flex items-center justify-center w-6 h-6 rounded-[50%] bg-blue-400 font-semibold text-[whitesmoke]">
-              <span className="mt-0.5">0</span>
+              <span className="mt-0.5">{currentFavProducts.length || 0}</span>
             </div>
           </NavLink>
         </li>

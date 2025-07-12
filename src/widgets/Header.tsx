@@ -1,3 +1,4 @@
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
 // React-icons:
@@ -5,7 +6,12 @@ import { GrCatalog } from 'react-icons/gr';
 import { PiStarBold } from 'react-icons/pi';
 import { FiShoppingCart } from 'react-icons/fi';
 
+// State:
+import { selectFavProductsList } from '../app/redux/slices/FavProductsSlice';
+
 const Header = () => {
+  const currentFavProducts = useSelector(selectFavProductsList);
+
   return (
     <header className="p-2 flex gap-4 items-center flex-wrap bg-[#f5f5f5]">
       <NavLink className="cursor-pointer" to="/">
@@ -34,7 +40,7 @@ const Header = () => {
             <PiStarBold className="text-3xl text-gray-600/50" />{' '}
             <span className="text-gray-400/50">Избранное</span>
             <div className="absolute top-0 right-4 flex items-center justify-center w-6 h-6 rounded-[50%] bg-blue-400 font-semibold text-[whitesmoke]">
-              <span className="mt-0.5">0</span>
+              <span className="mt-0.5">{currentFavProducts.length || 0}</span>
             </div>
           </NavLink>
         </li>

@@ -9,26 +9,37 @@ import ProductCard from '../../../shared/ui/ProductCard';
 import CustomButton from '../../../shared/ui/CustomButton';
 
 // State:
-import { selectCurrentProductsList } from '../../../app/redux/slices/catalogProductsSlice';
+import { selectCurrentProductsList } from '../../redux/slices/catalogProductsSlice';
+
 import {
-  selectFavProductsList,
   addProductToFav,
   removeProductFromFav,
-} from '../../../app/redux/slices/FavProductsSlice';
+  selectFavProductsList,
+} from '../../redux/slices/FavProductsSlice';
+
+import {
+  addProductToCart,
+  selectShoppingCartProductsList,
+} from '../../redux/slices/shoppingCartSlice';
 
 // Types:
-import { AppDispatch } from '../../../app/redux/store';
+import { AppDispatch } from '../../redux/store';
 import { Product_Props } from '../../../shared/types/Product_Props';
 
-const GroupTwoProductsList = () => {
+const CatalogGroupProductsList = () => {
   const dispatch: AppDispatch = useDispatch();
 
   const currentProductsList = useSelector(selectCurrentProductsList);
   const currentFavProducts = useSelector(selectFavProductsList);
+  const currentProductsInShoppingCart = useSelector(
+    selectShoppingCartProductsList
+  );
 
+  // Добавить товар в избранное:
+  // -----------------------------------
   const handleToggleProductFav = (productData: Product_Props) => {
     const isAlrdyInFav: boolean = currentFavProducts.some(
-      (favProduct) => favProduct.id === productData.id
+      (productInfo) => productInfo.id === productData.id
     );
 
     if (isAlrdyInFav) {
@@ -36,6 +47,18 @@ const GroupTwoProductsList = () => {
     } else {
       dispatch(addProductToFav(productData));
     }
+  };
+
+  // Добавить товар в корзину покупок:
+  // ------------------------------------
+  const handleAddProductToCart = (productData: Product_Props) => {
+    const isAlrdyInCart: boolean = currentProductsInShoppingCart.some(
+      (productInCartData) => productInCartData.id === productData.id
+    );
+
+    if (isAlrdyInCart) return;
+
+    dispatch(addProductToCart(productData));
   };
 
   return (
@@ -69,7 +92,12 @@ const GroupTwoProductsList = () => {
                 title={productInfo.productTitle}
                 price={productInfo.price}
               >
-                <CustomButton className="mt-2 flex gap-2 items-center justify-center">
+                <CustomButton
+                  className="mt-2 flex gap-2 items-center justify-center"
+                  onClick={() => {
+                    handleAddProductToCart(productInfo);
+                  }}
+                >
                   Купить <LuShoppingCart />
                 </CustomButton>
               </ProductCard>
@@ -81,4 +109,4 @@ const GroupTwoProductsList = () => {
   );
 };
 
-export default GroupTwoProductsList;
+export default CatalogGroupProductsList;

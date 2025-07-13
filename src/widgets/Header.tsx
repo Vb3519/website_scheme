@@ -8,9 +8,11 @@ import { FiShoppingCart } from 'react-icons/fi';
 
 // State:
 import { selectFavProductsList } from '../app/redux/slices/FavProductsSlice';
+import { selectShoppingCartProductsList } from '../app/redux/slices/shoppingCartSlice';
 
 const Header = () => {
   const currentFavProducts = useSelector(selectFavProductsList);
+  const currentProductsInCartList = useSelector(selectShoppingCartProductsList);
 
   return (
     <header className="p-2 flex gap-4 items-center flex-wrap bg-[#f5f5f5]">
@@ -52,7 +54,9 @@ const Header = () => {
             <FiShoppingCart className="text-3xl text-gray-600/50" />{' '}
             <span className="text-gray-400/50">Корзина</span>
             <div className="absolute top-0 right-1 flex items-center justify-center w-6 h-6 rounded-[50%] bg-blue-400 font-semibold text-[whitesmoke]">
-              <span className="mt-0.5">0</span>
+              <span className="mt-0.5">
+                {currentProductsInCartList.length || 0}
+              </span>
             </div>
           </NavLink>
         </li>

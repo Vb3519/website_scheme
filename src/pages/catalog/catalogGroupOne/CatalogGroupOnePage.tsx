@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 import CustomSection from '../../../shared/ui/CustomSection';
 import BreadCrumbs from '../../../shared/ui/BreadCrumbs';
 import CatalogFiltersForm from '../../../widgets/CatalogFiltersForm';
-import GroupOneProductsList from './GroupOneProductsList';
+import CatalogGroupProductsList from '../../../app/features/allProducts/CatalogGroupProductsList';
 
 // Api:
 import { catalogProductsURL } from '../../../shared/api/catalogApi';
@@ -76,7 +76,7 @@ const CatalogGroupOnePage = () => {
                   Группа товаров №1:
                 </h1>
 
-                <GroupOneProductsList />
+                <CatalogGroupProductsList />
               </>
             ) : (
               <div className="h-screen flex items-center">

@@ -10,7 +10,7 @@ import { LuShoppingCart } from 'react-icons/lu';
 import CustomSection from '../../../shared/ui/CustomSection';
 import BreadCrumbs from '../../../shared/ui/BreadCrumbs';
 import CatalogFiltersForm from '../../../widgets/CatalogFiltersForm';
-import GroupThreeProductsList from './GroupThreeProductsList';
+import CatalogGroupProductsList from '../../../app/features/allProducts/CatalogGroupProductsList';
 
 // Api:
 import { catalogProductsURL } from '../../../shared/api/catalogApi';
@@ -80,7 +80,7 @@ const CatalogGroupThreePage = () => {
                   Группа товаров №2:
                 </h1>
 
-                <GroupThreeProductsList />
+                <CatalogGroupProductsList />
               </>
             ) : (
               <div className="h-screen flex items-center">

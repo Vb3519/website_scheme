@@ -92,11 +92,6 @@ const catalogProductsSlice = createSlice({
 export const { setSelectedProductsGroupId, setErrorMsg } =
   catalogProductsSlice.actions;
 
-console.log(
-  'Доступные действия слайса каталога:',
-  catalogProductsSlice.actions
-);
-
 // Слайсы состояния:
 // ---------------
 export const selectCatalogProductsSlice = (state: CatalogProductsSlice) =>

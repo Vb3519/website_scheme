@@ -60,15 +60,21 @@ const groupOneFilterSlice = createSlice({
         },
       };
     },
+
+    toggleOnlyFav: (state) => {
+      return { ...state, onlyFav: !state.onlyFav };
+    },
   },
 });
 
 // Действия:
-export const { toggleDevOne, toggleDevTwo, toggleDevThree } =
+export const { toggleDevOne, toggleDevTwo, toggleDevThree, toggleOnlyFav } =
   groupOneFilterSlice.actions;
 
 // Состояние:
 export const selectDevelopersFilter = (state: GroupOneFilterSlice) =>
   state.groupOneFilter.developers;
+export const selectOnlyFavFilter = (state: GroupOneFilterSlice) =>
+  state.groupOneFilter.onlyFav;
 
 export default groupOneFilterSlice.reducer;

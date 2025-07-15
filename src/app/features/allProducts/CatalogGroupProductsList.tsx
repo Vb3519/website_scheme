@@ -10,6 +10,10 @@ import CustomButton from '../../../shared/ui/CustomButton';
 
 // State:
 import { selectCurrentProductsList } from '../../redux/slices/catalogProductsSlice';
+import {
+  selectDevelopersFilter,
+  selectOnlyFavFilter,
+} from '../../redux/slices/groupOneFilterSlice';
 
 import {
   addProductToFav,
@@ -34,6 +38,9 @@ const CatalogGroupProductsList = () => {
   const currentProductsInShoppingCart = useSelector(
     selectShoppingCartProductsList
   );
+
+  const currentDevelopersFilter = useSelector(selectDevelopersFilter);
+  const currentFavFilter = useSelector(selectOnlyFavFilter);
 
   // Добавить товар в избранное:
   // -----------------------------------
@@ -61,11 +68,54 @@ const CatalogGroupProductsList = () => {
     dispatch(addProductToCart(productData));
   };
 
+  // ------------------------------------
+  // Фильтры:
+  // ------------------------------------
+  const filteredProductsList: Product_Props[] = currentProductsList.filter(
+    (product) => {
+      // Производители:
+      const userSelectedDevelopers: string[] = [];
+
+      if (currentDevelopersFilter.devOne) {
+        userSelectedDevelopers.push('Производитель №1');
+      }
+
+      if (currentDevelopersFilter.devTwo) {
+        userSelectedDevelopers.push('Производитель №2');
+      }
+
+      if (currentDevelopersFilter.devThree) {
+        userSelectedDevelopers.push('Производитель №3');
+      }
+
+      const matchesSelectedDevelopers: boolean = userSelectedDevelopers.length
+        ? userSelectedDevelopers.some((developer: string) => {
+            return product.vendorTitle
+              .toLocaleLowerCase()
+              .includes(developer.toLowerCase());
+          })
+        : true;
+
+      // Только "избранное":
+      // const matchesOnlyFav: boolean = currentFavFilter ? product.isInFav : true;
+
+      const matchesOnlyFav: boolean = currentFavFilter
+        ? currentFavProducts.length
+          ? currentFavProducts.some((favProduct) => {
+              return favProduct.id === product.id;
+            })
+          : false
+        : true;
+
+      return matchesSelectedDevelopers && matchesOnlyFav;
+    }
+  );
+
   return (
     <>
       {currentProductsList.length ? (
         <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {currentProductsList.map((productInfo) => {
+          {filteredProductsList.map((productInfo) => {
             const isInFav: boolean = currentFavProducts.some(
               (favProduct) => favProduct.id === productInfo.id
             );

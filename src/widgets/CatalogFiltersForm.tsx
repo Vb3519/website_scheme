@@ -10,6 +10,8 @@ import {
   toggleDevOne,
   toggleDevTwo,
   toggleDevThree,
+  selectOnlyFavFilter,
+  toggleOnlyFav,
 } from '../app/redux/slices/groupOneFilterSlice';
 
 const CatalogFiltersForm = () => {
@@ -19,7 +21,9 @@ const CatalogFiltersForm = () => {
     selectCurrentProductsGroupId
   );
   const currentDevFilters = useSelector(selectDevelopersFilter);
+  const currentFavFilter = useSelector(selectOnlyFavFilter);
 
+  // Фильтр по производителям:
   const handleToggleDevelopersFilter = (devTitle: string) => {
     switch (devTitle) {
       case 'Производитель №1': {
@@ -40,6 +44,11 @@ const CatalogFiltersForm = () => {
       default:
         return;
     }
+  };
+
+  // Фильтр по избранному:
+  const handleToggleOnlyFavFilter = () => {
+    dispatch(toggleOnlyFav());
   };
 
   return (
@@ -94,7 +103,14 @@ const CatalogFiltersForm = () => {
       <fieldset className="py-2 border-b-2 border-b-gray-200 flex flex-col gap-1 items-start xs:p-0">
         <p className="font-semibold">Только "избранное":</p>
         <div className="flex gap-2 items-center">
-          <input id="onlyFav" type="checkbox"></input>
+          <input
+            id="onlyFav"
+            type="checkbox"
+            checked={currentFavFilter}
+            onChange={() => {
+              handleToggleOnlyFavFilter();
+            }}
+          ></input>
           <label htmlFor="onlyFav" className="mt-0.5 cursor-pointer">
             Да
           </label>

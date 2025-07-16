@@ -13,6 +13,7 @@ import { selectCurrentProductsList } from '../../redux/slices/catalogProductsSli
 import {
   selectDevelopersFilter,
   selectOnlyFavFilter,
+  selectOnlyIsInStockFilter,
 } from '../../redux/slices/groupOneFilterSlice';
 
 import {
@@ -41,6 +42,7 @@ const CatalogGroupProductsList = () => {
 
   const currentDevelopersFilter = useSelector(selectDevelopersFilter);
   const currentFavFilter = useSelector(selectOnlyFavFilter);
+  const currentIsInStockFilter = useSelector(selectOnlyIsInStockFilter);
 
   // Добавить товар в избранное:
   // -----------------------------------
@@ -107,7 +109,13 @@ const CatalogGroupProductsList = () => {
           : false
         : true;
 
-      return matchesSelectedDevelopers && matchesOnlyFav;
+      // Товары только в наличии:
+      // ------------------------------
+      const matchesIsInStock: boolean = currentIsInStockFilter
+        ? product.isInStock
+        : true;
+
+      return matchesSelectedDevelopers && matchesOnlyFav && matchesIsInStock;
     }
   );
 

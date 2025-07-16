@@ -12,6 +12,8 @@ import {
   toggleDevThree,
   selectOnlyFavFilter,
   toggleOnlyFav,
+  selectOnlyIsInStockFilter,
+  toggleIsInStock,
 } from '../app/redux/slices/groupOneFilterSlice';
 
 const CatalogFiltersForm = () => {
@@ -22,6 +24,7 @@ const CatalogFiltersForm = () => {
   );
   const currentDevFilters = useSelector(selectDevelopersFilter);
   const currentFavFilter = useSelector(selectOnlyFavFilter);
+  const currentIsInStockFilter = useSelector(selectOnlyIsInStockFilter);
 
   // Фильтр по производителям:
   const handleToggleDevelopersFilter = (devTitle: string) => {
@@ -49,6 +52,11 @@ const CatalogFiltersForm = () => {
   // Фильтр по избранному:
   const handleToggleOnlyFavFilter = () => {
     dispatch(toggleOnlyFav());
+  };
+
+  // Фильтр по товару в наличии:
+  const handleToggleIsInStockFilter = () => {
+    dispatch(toggleIsInStock());
   };
 
   return (
@@ -121,7 +129,14 @@ const CatalogFiltersForm = () => {
       <fieldset className="py-2 border-b-2 border-b-gray-200 flex flex-col gap-1 items-start xs:border-0">
         <p className="font-semibold">Статус:</p>
         <div className="flex gap-2 items-center">
-          <input id="inStock" type="checkbox"></input>
+          <input
+            id="inStock"
+            type="checkbox"
+            checked={currentIsInStockFilter}
+            onChange={() => {
+              handleToggleIsInStockFilter();
+            }}
+          ></input>
           <label htmlFor="inStock" className="mt-0.5 cursor-pointer">
             В наличии
           </label>

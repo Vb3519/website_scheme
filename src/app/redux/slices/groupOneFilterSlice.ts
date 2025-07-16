@@ -64,17 +64,28 @@ const groupOneFilterSlice = createSlice({
     toggleOnlyFav: (state) => {
       return { ...state, onlyFav: !state.onlyFav };
     },
+
+    toggleIsInStock: (state) => {
+      return { ...state, onlyInStock: !state.onlyInStock };
+    },
   },
 });
 
 // Действия:
-export const { toggleDevOne, toggleDevTwo, toggleDevThree, toggleOnlyFav } =
-  groupOneFilterSlice.actions;
+export const {
+  toggleDevOne,
+  toggleDevTwo,
+  toggleDevThree,
+  toggleOnlyFav,
+  toggleIsInStock,
+} = groupOneFilterSlice.actions;
 
 // Состояние:
 export const selectDevelopersFilter = (state: GroupOneFilterSlice) =>
   state.groupOneFilter.developers;
 export const selectOnlyFavFilter = (state: GroupOneFilterSlice) =>
   state.groupOneFilter.onlyFav;
+export const selectOnlyIsInStockFilter = (state: GroupOneFilterSlice) =>
+  state.groupOneFilter.onlyInStock;
 
 export default groupOneFilterSlice.reducer;

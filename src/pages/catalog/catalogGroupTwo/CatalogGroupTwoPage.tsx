@@ -5,8 +5,9 @@ import { NavLink } from 'react-router-dom';
 // Ui:
 import CustomSection from '../../../shared/ui/CustomSection';
 import BreadCrumbs from '../../../shared/ui/BreadCrumbs';
-import CatalogFiltersForm from '../../../widgets/CatalogFiltersForm';
 import CatalogGroupProductsList from '../../../app/features/allProducts/CatalogGroupProductsList';
+
+import CatalogFiltersForm from '../../../widgets/CatalogFiltersForm';
 
 // Api:
 import { catalogProductsURL } from '../../../shared/api/catalogApi';

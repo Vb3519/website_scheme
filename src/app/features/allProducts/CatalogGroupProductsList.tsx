@@ -14,6 +14,7 @@ import {
   selectDevelopersFilter,
   selectOnlyFavFilter,
   selectOnlyIsInStockFilter,
+  selectPriceFilter,
 } from '../../redux/slices/groupOneFilterSlice';
 
 import {
@@ -40,9 +41,11 @@ const CatalogGroupProductsList = () => {
     selectShoppingCartProductsList
   );
 
+  //  Фильтры:
   const currentDevelopersFilter = useSelector(selectDevelopersFilter);
   const currentFavFilter = useSelector(selectOnlyFavFilter);
   const currentIsInStockFilter = useSelector(selectOnlyIsInStockFilter);
+  const currentPriceFilter = useSelector(selectPriceFilter);
 
   // Добавить товар в избранное:
   // -----------------------------------
@@ -115,7 +118,21 @@ const CatalogGroupProductsList = () => {
         ? product.isInStock
         : true;
 
-      return matchesSelectedDevelopers && matchesOnlyFav && matchesIsInStock;
+      // Цена товара:
+      // ------------------------------
+      const matchesMinPrice: boolean =
+        product.price >= currentPriceFilter.minPrice;
+
+      const matchesMaxPrice: boolean =
+        product.price <= currentPriceFilter.maxPrice;
+
+      return (
+        matchesSelectedDevelopers &&
+        matchesOnlyFav &&
+        matchesIsInStock &&
+        matchesMinPrice &&
+        matchesMaxPrice
+      );
     }
   );
 

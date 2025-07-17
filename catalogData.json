@@ -11,7 +11,7 @@
       "groupId": 1,
       "groupTitle": "Группа №1",
       "productTitle": "Товар №1",
-      "price": 1000,
+      "price": 500,
       "isInStock": true,
       "isInFav": false
     },
@@ -21,7 +21,7 @@
       "groupId": 1,
       "groupTitle": "Группа №1",
       "productTitle": "Товар №2",
-      "price": 1200,
+      "price": 700,
       "isInStock": true,
       "isInFav": false
     },
@@ -31,7 +31,7 @@
       "groupId": 1,
       "groupTitle": "Группа №1",
       "productTitle": "Товар №3",
-      "price": 1400,
+      "price": 900,
       "isInStock": false,
       "isInFav": false
     },
@@ -41,7 +41,7 @@
       "groupId": 1,
       "groupTitle": "Группа №1",
       "productTitle": "Товар №4",
-      "price": 1400,
+      "price": 1200,
       "isInStock": true,
       "isInFav": false
     },
@@ -52,7 +52,7 @@
       "groupId": 2,
       "groupTitle": "Группа №2",
       "productTitle": "Товар №5",
-      "price": 1000,
+      "price": 500,
       "isInStock": false,
       "isInFav": false
     },
@@ -72,7 +72,7 @@
       "groupId": 2,
       "groupTitle": "Группа №2",
       "productTitle": "Товар №7",
-      "price": 1400,
+      "price": 750,
       "isInStock": true,
       "isInFav": false
     },
@@ -83,7 +83,7 @@
       "groupId": 3,
       "groupTitle": "Группа №3",
       "productTitle": "Товар №8",
-      "price": 1000,
+      "price": 600,
       "isInStock": true,
       "isInFav": false
     },
@@ -103,7 +103,7 @@
       "groupId": 3,
       "groupTitle": "Группа №3",
       "productTitle": "Товар №10",
-      "price": 1400,
+      "price": 550,
       "isInStock": false,
       "isInFav": false
     }

@@ -5,7 +5,7 @@ import Footer from '../../widgets/Footer';
 
 const MainLayout = () => {
   return (
-    <div className="h-screen flex flex-col font-[Roboto] lg:h-full">
+    <div className="h-screen flex flex-col font-[Roboto] lg:h-full lg:min-h-screen">
       <Header />
 
       <Outlet />

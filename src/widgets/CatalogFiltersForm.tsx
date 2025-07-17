@@ -14,6 +14,8 @@ import {
   toggleOnlyFav,
   selectOnlyIsInStockFilter,
   toggleIsInStock,
+  setPrice,
+  selectPriceFilter,
 } from '../app/redux/slices/groupOneFilterSlice';
 
 const CatalogFiltersForm = () => {
@@ -25,6 +27,7 @@ const CatalogFiltersForm = () => {
   const currentDevFilters = useSelector(selectDevelopersFilter);
   const currentFavFilter = useSelector(selectOnlyFavFilter);
   const currentIsInStockFilter = useSelector(selectOnlyIsInStockFilter);
+  const currentPriceFilter = useSelector(selectPriceFilter);
 
   // Фильтр по производителям:
   const handleToggleDevelopersFilter = (devTitle: string) => {
@@ -57,6 +60,19 @@ const CatalogFiltersForm = () => {
   // Фильтр по товару в наличии:
   const handleToggleIsInStockFilter = () => {
     dispatch(toggleIsInStock());
+  };
+
+  // Фильтр по цене:
+  const handleSetPrice = (
+    event: React.ChangeEvent<HTMLInputElement>,
+    priceType: 'minPrice' | 'maxPrice'
+  ) => {
+    const productPricePayload = {
+      price: Number(event.target.value),
+      priceType: priceType,
+    };
+
+    dispatch(setPrice(productPricePayload));
   };
 
   return (
@@ -147,13 +163,31 @@ const CatalogFiltersForm = () => {
       <fieldset className="pt-2 flex flex-col gap-1">
         <p className="font-semibold">Цена:</p>
         <div className="flex flex-col gap-2">
-          <span>От 20 000 Руб.</span>
-          <input type="range" step="100" min="20000" max="30000"></input>
+          <span>От 500 Руб.</span>
+          <input
+            type="range"
+            step="100"
+            min="500"
+            max="1200"
+            value={currentPriceFilter.minPrice}
+            onChange={(event) => {
+              handleSetPrice(event, 'minPrice');
+            }}
+          ></input>
         </div>
 
         <div className="flex flex-col gap-2">
-          <span>До 30 000 Руб.</span>
-          <input type="range" step="100" min="20000" max="30000"></input>
+          <span>До 1200 Руб.</span>
+          <input
+            type="range"
+            step="100"
+            min="500"
+            max="1200"
+            value={currentPriceFilter.maxPrice}
+            onChange={(event) => {
+              handleSetPrice(event, 'maxPrice');
+            }}
+          ></input>
         </div>
       </fieldset>
     </form>

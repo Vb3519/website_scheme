@@ -7,7 +7,7 @@ import { PiStarBold } from 'react-icons/pi';
 // Ui:
 import CustomSection from '../shared/ui/CustomSection';
 import BreadCrumbs from '../shared/ui/BreadCrumbs';
-import FavProductsList from '../app/features/favProducts/favProductsList';
+import FavProductsList from '../app/features/favProducts/FavProductsList';
 
 // State:
 import { selectFavProductsList } from '../app/redux/slices/FavProductsSlice';

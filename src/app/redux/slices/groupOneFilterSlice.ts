@@ -28,8 +28,8 @@ const initialState: GroupOneFilterState = {
   onlyFav: false,
   onlyInStock: false,
   price: {
-    minPrice: 0,
-    maxPrice: 0,
+    minPrice: 500,
+    maxPrice: 1200,
   },
 };
 
@@ -68,6 +68,17 @@ const groupOneFilterSlice = createSlice({
     toggleIsInStock: (state) => {
       return { ...state, onlyInStock: !state.onlyInStock };
     },
+
+    setPrice: (
+      state,
+      action: {
+        payload: { priceType: 'minPrice' | 'maxPrice'; price: number };
+        type: string;
+      }
+    ) => {
+      const { priceType, price } = action.payload;
+      state.price[priceType] = price;
+    },
   },
 });
 
@@ -78,6 +89,7 @@ export const {
   toggleDevThree,
   toggleOnlyFav,
   toggleIsInStock,
+  setPrice,
 } = groupOneFilterSlice.actions;
 
 // Состояние:
@@ -87,5 +99,7 @@ export const selectOnlyFavFilter = (state: GroupOneFilterSlice) =>
   state.groupOneFilter.onlyFav;
 export const selectOnlyIsInStockFilter = (state: GroupOneFilterSlice) =>
   state.groupOneFilter.onlyInStock;
+export const selectPriceFilter = (state: GroupOneFilterSlice) =>
+  state.groupOneFilter.price;
 
 export default groupOneFilterSlice.reducer;

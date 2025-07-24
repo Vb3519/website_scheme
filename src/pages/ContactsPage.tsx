@@ -6,6 +6,7 @@ import { GrContact } from 'react-icons/gr';
 // Ui:
 import CustomSection from '../shared/ui/CustomSection';
 import BreadCrumbs from '../shared/ui/BreadCrumbs';
+import ContactsFormWithUseState from '../widgets/ContactsFormWithUseState';
 
 const ContactsPage = () => {
   return (
@@ -23,6 +24,9 @@ const ContactsPage = () => {
         <h1 className="text-center font-semibold text-2xl">
           Контакты для обратной связи
         </h1>
+
+        <ContactsFormWithUseState />
+
         <GrContact className="m-auto text-9xl text-gray-400/50" />
       </CustomSection>
     </main>
